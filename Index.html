@@ -1,1 +1,27 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tasks</h1>
+    <div class="task-input">
+      <input type="text" id="task-input" placeholder="New Task">
+      <button id="input-btn">+</button>
+    </div>
+    <h3 id="task-heading">My Tasks</h2>
+    <ul id="task-list"></ul>
+    <div id="completed-section">
+      <button id="toggle-completed">Completed (0)</button>
+      <ul id="completed-list" class="hidden">
+        
+      </ul>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
