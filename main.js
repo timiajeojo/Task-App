@@ -19,4 +19,15 @@ function renderTasks() {
     if (task.completed) {
       li.classList.add("completed")
     }
+
+const taskContent = document.createElement("div")
+    taskContent.classList.add("task-content")
+    const taskText = document.createElement("span")
+    taskText.taskContent = task.task
+    const taskDate = document.createElement("small")
+    taskDate.textContent = task.date
+    taskDate.classList.add("task-date")
+    taskContent.appendChild(taskText)
+    taskContent.appendChild(taskDate)
+    li.textContent = task.text;
     
