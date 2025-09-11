@@ -31,3 +31,25 @@ const taskContent = document.createElement("div")
     taskContent.appendChild(taskDate)
     li.textContent = task.text;
     
+
+const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
+    checkbox.classList.add("task-checkbox");
+    
+    
+    const delBtn = document.createElement("button")
+    delBtn.textContent = "❌"
+    delBtn.classList.add("delete-btn")
+    delBtn.addEventListener("click", () => {
+      tasks.splice(index, 1)
+      saveTasks()
+      renderTasks()
+    })
+    li.appendChild(checkbox)
+    li.appendChild(delBtn)
+    
+    if (task.completed) {
+      completedList.appendChild(li)
+    }
+    
