@@ -53,3 +53,51 @@ const checkbox = document.createElement("input");
       completedList.appendChild(li)
     }
     
+
+checkbox.addEventListener("change", () => {
+      tasks[index].completed = checkbox.checked;
+      saveTasks();
+      renderTasks();
+    }); 
+    li.appendChild(taskContent);
+    li.appendChild(checkbox);
+
+
+    // Append to correct list
+    if (task.completed) {
+      completedList.appendChild(li);
+      completedCount++;
+    } else {
+      taskList.appendChild(li);
+    }
+  });
+
+
+  // Update toggle button with count
+  toggleBtn.textContent = `Completed (${completedCount})`;
+}
+
+
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+
+inputBtn.addEventListener("click", () => {
+  const text = taskInput.value.trim();
+  if (text !== "") {
+    tasks.push({ text: text, completed: false, date:new Date().toLocaleString() });
+    saveTasks();
+    renderTasks();
+    taskInput.value = "";
+  }
+});
+
+
+// Toggle completed section
+toggleBtn.addEventListener("click", () => {
+  completedList.classList.toggle("hidden");
+});
+
+// Render on load
+renderTasks();
